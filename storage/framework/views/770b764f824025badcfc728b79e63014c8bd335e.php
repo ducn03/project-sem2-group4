@@ -5,10 +5,11 @@
     <div class="bg-white ">
         <div class="row">
             <div class="col-sm-3">
-                <div class="navbar-list">
-                    <div class="subnav-header">
+            <div class="subnav-header">
                         <button class="subnavbtn" disabled><i class="fa fa-bars"></i> List of products</button>
                     </div>
+                <div class="navbar-list">
+                   
                     <div class="subnav">
                         <button class="subnavbtn">Vegetable<i class="fa fa-caret-square-o-right"></i></button>
                         <div class="subnav-content">
@@ -119,54 +120,46 @@
         </div>
     </div>
 
-</nav>
+</nav><br>
 
-    <br><br><div style="border: 1px solid; border-color:#828282;"></div><br><br>
+    <!-- <br><br><div style="border-top: 1px solid; border-color:#828282;"></div> -->
 
-<section class="ftco-section ftco-no-pb">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-2 col-md-4 ">
-						<div class="sort w-100 text-center ftco-animate">
-							<div class="img home-img1" ></div>
-							<h3>Vegetables</h3>
-						</div>
-					</div>
-					<div class="col-lg-2 col-md-4 ">
-						<div class="sort w-100 text-center ftco-animate">
-							<div class="img" style="background-image: url();"></div>
-							<h3>Gin</h3>
-						</div>
-					</div>
-					<div class="col-lg-2 col-md-4 ">
-						<div class="sort w-100 text-center ftco-animate">
-							<div class="img" style="background-image: url(images/kind-3.jpg);"></div>
-							<h3>Rum</h3>
-						</div>
-					</div>
-					<div class="col-lg-2 col-md-4 ">
-						<div class="sort w-100 text-center ftco-animate">
-							<div class="img" style="background-image: url(images/kind-4.jpg);"></div>
-							<h3>Tequila</h3>
-						</div>
-					</div>
-					<div class="col-lg-2 col-md-4 ">
-						<div class="sort w-100 text-center ftco-animate">
-							<div class="img" style="background-image: url(images/kind-5.jpg);"></div>
-							<h3>Vodka</h3>
-						</div>
-					</div>
-					<div class="col-lg-2 col-md-4 ">
-						<div class="sort w-100 text-center ftco-animate">
-							<div class="img" style="background-image: url(images/kind-6.jpg);"></div>
-							<h3>Whiskey</h3>
-						</div>
-					</div>
+<div class="container">
+    <div class="img-main-mid-home">
+    <div class="img-mid-home">
+        <img class="hover-img" src="<?php echo e(asset('img/raucuqua.jpg')); ?>"  alt=""><br>
+        <span>Vegetable</span>
+    </div>
+    <div class="img-mid-home">
+        <img class="hover-img" src="<?php echo e(asset('img/raucuqua.jpg')); ?>"  alt=""><br>
+        <span>Vegetable</span>
+    </div>
+    <div class="img-mid-home">
+        <img class="hover-img" src="<?php echo e(asset('img/raucuqua.jpg')); ?>"  alt=""><br>
+        <span>Vegetable</span>
+    </div>
+    <div class="img-mid-home">
+        <img class="hover-img" src="<?php echo e(asset('img/raucuqua.jpg')); ?>"  alt=""><br>
+        <span>Vegetable</span>
+    </div>
+    <div class="img-mid-home">
+        <img class="hover-img" src="<?php echo e(asset('img/raucuqua.jpg')); ?>"  alt=""><br>
+        <span>Vegetable</span>
+    </div>
+    <div class="img-mid-home">
+        <img class="hover-img" src="<?php echo e(asset('img/raucuqua.jpg')); ?>"  alt=""><br>
+        <span>Vegetable</span>
+    </div>
+    </div>
+</div><br><br>
 
-				</div>
-			</div>
-		</section>
+<!-- <br><br><div style="border-top: 1px solid; border-color:#828282;"></div> -->
 
+<div class="container">
+    <div class="bg-white">
+
+    </div>
+</div>
 <?php $__env->stopSection(); ?>
 <?php $__env->startSection('script-section'); ?>
 
