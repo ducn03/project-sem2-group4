@@ -14,5 +14,3 @@ Team members include:
 3.Huynh Thi Xuan Mai - Student1331706 - Dev
 
 4.Tran Van Luu - Student1328507 - Dev
-
-5.Trinh Le Minh Thai - Student1287967 - Dev
