@@ -150,6 +150,13 @@
                         required>
                 </div>
                 <div class="col l-6 m-6 c-12">
+                    Phone: <input class="form-control" type="text" name="phone" id="phone"
+                        required>
+                </div>
+                <div class="col l-6 m-6 c-12">
+                    Note: <textarea class="form-control" name="note" id="note" value="no notes"></textarea>
+                </div>
+                <div class="col l-6 m-6 c-12">
 
                 </div>
 

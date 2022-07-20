@@ -80,11 +80,11 @@
                                     @endif
 
                                 </div>
-                                <!--QUẢN TRỊ VIÊN MỚI ĐƯỢC QUYỀN CHỈNH NHÂN VIÊN-->
-                                @if (session('user')->role == 2)
+                                {{-- <!--QUẢN TRỊ VIÊN MỚI ĐƯỢC QUYỀN CHỈNH NHÂN VIÊN-->
+                                @if (session('user')->role == 2) --}}
                                     <div class="form-group">
                                         <label for="txt-category">Staff id</label>
-                                        <select class="form-control" name="staff_id" id="txtstaff_id" required>
+                                        {{-- <select class="form-control" name="staff_id" id="txtstaff_id" required>
                                             <!--CHƯA CÓ NHÂN VIÊN NÀO THÌ VÔ ĐÂY-->
                                             @if ($o->staff_id == null)
                                                 <option></option>
@@ -101,22 +101,25 @@
                                                     @endif
                                                 @endforeach
                                             @endif
-                                        </select>
+                                        </select> --}}
+
+                                        <input type="text" class="form-control" name="staff_id" id="txtstaff_id" value="{{ session('user')->username }}" readonly>
+
                                     </div>
-                                    <!--NHÂN VIÊN THÌ CHỈ LẤY GIÁ TRỊ MẶC ĐỊNH Ở DƯỚI KHÔNG ĐƯỢC SỬA-->
+                                    {{-- <!--NHÂN VIÊN THÌ CHỈ LẤY GIÁ TRỊ MẶC ĐỊNH Ở DƯỚI KHÔNG ĐƯỢC SỬA-->
                                 @else
-                                    <input type="hidden" name="staff_id" id="txtstaff_id" value="{{ $o->staff_id }}">
-                                @endif
+                                    <input type="text" class="form-control" name="staff_id" id="txtstaff_id" value="{{ $o->staff_id }}" readonly>
+                                @endif --}}
                                 <div class="form-group">
                                     <label>Delivered date</label>
                                     <input type="date" class="form-control" name="delivered_date"
                                         value="{{ $o->delivered_date }}">
                                 </div>
-                                <div class="form-group">
+                                {{-- <div class="form-group">
                                     <label>Shipping fee</label>
                                     <input type="text" class="form-control" name="shipping_fee"
                                         value="{{ $o->shipping_fee }}">
-                                </div>
+                                </div> --}}
                                 <table class="table table-hover">
                                     <tr>
                                         <th>Name</th>

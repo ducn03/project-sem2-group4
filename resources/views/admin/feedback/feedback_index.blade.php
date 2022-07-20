@@ -37,7 +37,7 @@
                                     {{-- <th>Staff_id</th>
                                     <th>Reply</th>
                                     <th>Time Reply</th> --}}
-                                    <th></th>
+                                    <th style="min-width:140px;"></th>
                                 </tr>
                             </thead>
                             <tbody>

@@ -21,7 +21,7 @@
 
     <!--ORDER WAITING-->
     {{-- CHỈ CÓ QUẢN TRỊ VIÊN MỚI COI ĐƯỢC BẢNG NÀY --}}
-    @if (session('user')->role == 2)
+    {{-- @if (session('user')->role == 2) --}}
     <section class="content">
         <div class="row">
             <div class="col-12">
@@ -38,13 +38,15 @@
                                     <th>Total_amount</th>
                                     <th>Shipping_name</th>
                                     <th>Shipping_mobile</th>
+                                    <th>Phone</th>
+                                    <th>Note</th>
                                     <th>Shipping_email</th>
                                     <th>Shipping_address</th>
                                     <th>Payment_term</th>
                                     <th>Staff_id</th>
                                     <th>Delivered_date</th>
                                     <th>Shipping_fee</th>
-                                    <th></th>
+                                    <th style="min-width:140px;"></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -58,6 +60,8 @@
                                             <td>{{ $o->total_amount }}</td>
                                             <td>{{ $o->shipping_name }}</td>
                                             <td>{{ $o->shipping_mobile }}</td>
+                                            <td>{{ $o->phone }}</td>
+                                            <td>{{ $o->note }}</td>
                                             <td>{{ $o->shipping_email }}</td>
                                             <td>{{ $o->shipping_address }}</td>
                                             <td>
@@ -77,11 +81,14 @@
                                                     <i class="fas fa-pencil-alt"></i> Edit
                                                 </a>
 
+                                                @if (session('user')->role == 2)
+
                                                 <a class="btn btn-danger btn-sm"
                                                     href="{{ url('admin/order/order_delete/' . $o->id) }}">
                                                     <i class="fas fa-trash"></i> Delete
                                                 </a>
 
+                                                @endif
 
                                             </td>
                                         </tr>
@@ -104,7 +111,7 @@
         </div>
         <!-- /.row -->
     </section>
-    @endif
+    {{-- @endif --}}
     {{-- END BẢNG ORDER WAITING --}}
 
     <!--ORDER CONFIRM-->
@@ -125,13 +132,15 @@
                                     <th>Total_amount</th>
                                     <th>Shipping_name</th>
                                     <th>Shipping_mobile</th>
+                                    <th>Phone</th>
+                                    <th>Note</th>
                                     <th>Shipping_email</th>
                                     <th>Shipping_address</th>
                                     <th>Payment_term</th>
                                     <th>Staff_id</th>
                                     <th>Delivered_date</th>
                                     <th>Shipping_fee</th>
-                                    <th></th>
+                                    <th style="min-width:140px;"></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -148,6 +157,8 @@
                                             <td>{{ $o->total_amount }}</td>
                                             <td>{{ $o->shipping_name }}</td>
                                             <td>{{ $o->shipping_mobile }}</td>
+                                            <td>{{ $o->phone }}</td>
+                                            <td>{{ $o->note }}</td>
                                             <td>{{ $o->shipping_email }}</td>
                                             <td>{{ $o->shipping_address }}</td>
                                             <td>
@@ -186,6 +197,8 @@
                                             <td>{{ $o->total_amount }}</td>
                                             <td>{{ $o->shipping_name }}</td>
                                             <td>{{ $o->shipping_mobile }}</td>
+                                            <td>{{ $o->phone }}</td>
+                                            <td>{{ $o->note }}</td>
                                             <td>{{ $o->shipping_email }}</td>
                                             <td>{{ $o->shipping_address }}</td>
                                             <td>

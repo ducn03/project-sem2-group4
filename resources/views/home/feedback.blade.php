@@ -53,7 +53,7 @@
                 <th>Staff reply</th>
                 <th>Reply</th>
                 <th>Date reply</th>
-                <th></th>
+                <th style="min-width:100px;"></th>
             </tr>
             <!--THÔNG TIN LỊCH SỬ ĐÃ FEEDBACK-->
             @foreach ($feedback as $f)
