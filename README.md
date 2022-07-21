@@ -14,3 +14,5 @@ Team members include:
 3.Huynh Thi Xuan Mai - Student1331706 - Dev
 
 4.Tran Van Luu - Student1328507 - Dev
+
+Link to video demonstration: https://youtu.be/G4mNXuhsNAw
