@@ -82,9 +82,10 @@
             <th class="tb2">qty</th>
             <th class="tb2">price</th>
         </tr>
+        <?php $total = 0; ?>
         @if (session('cart'))
             @foreach (session('cart') as $id => $details)
-
+            <?php $total += $details['price'] * $details['quantity']; ?>
 
                 <tr class="tb2">
                     <td class="tb2">{{ $details['name'] }}</td>
@@ -97,7 +98,7 @@
         @endif
         <tr class="tb2">
             <td class="tb2" colspan="3">Total</td>
-            <td class="tb2">$ {{ $details['price'] * $details['quantity']; }}</td>
+            <td class="tb2">$ {{ $total }}</td>
         </tr>
     </table>
 </body>

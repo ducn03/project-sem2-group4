@@ -59,7 +59,7 @@
                                                 href="{{ url('admin/staff/staff_update/' . $s->username) }}">
                                                 <i class="fas fa-pencil-alt"></i> Edit
                                             </a>
-                                            <a class="btn btn-danger btn-sm"
+                                            <a onclick="return confirm('Are you sure you want to delete it?');" class="btn btn-danger btn-sm"
                                                 href="{{ url('admin/staff/deleteStaff/' . $s->username) }}">
                                                 <i class="fas fa-trash"></i> Delete
                                             </a>

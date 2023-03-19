@@ -16,11 +16,10 @@
                             inputmode="numeric" class="form-filter" type="number" value="1" min="1"
                             max="{{ $p->inventory_qty }}" disabled></h2>
                     <div>
-                        <button onclick="location.href=`{{ url('home/add-to-cart/' . $p->id) }}`"
-                            class="product_detail_button">Add to cart <span
+                        <button onclick="Cart({{ $p->id }})" class="product_detail_button">Add to cart <span
                                 class="glyphicon glyphicon-shopping-cart"></button>
-                        <button onclick="location.href=`{{ url('home/cart') }}`" class="product_detail_button">Check out <span
-                                class="glyphicon glyphicon-check"></span></button>
+                        <button onclick="location.href=`{{ url('home/cart') }}`" class="product_detail_button">Check out
+                            <span class="glyphicon glyphicon-check"></span></button>
                     </div>
                 </div>
             </div>
@@ -73,7 +72,8 @@
                                     </div>
                                     <div class="media-body">
                                         <h4 class="media-heading">{{ $f->staff_id }}
-                                            <small><i>{{ $f->created_DateRep }}</i></small></h4>
+                                            <small><i>{{ $f->created_DateRep }}</i></small>
+                                        </h4>
                                         <p
                                             style="background-color: #eee; display:table; padding: 10px 12px 10px 12px; border-radius:15px;">
                                             {{ $f->reply }}</p>
@@ -104,9 +104,8 @@
                         {{-- AVATAR NG DÙNG :)) --}}
                         <div class="media">
                             <div class="media-left">
-                                <img style="border-radius:50%"
-                                    src="{{ url('member/img/' . session('member')->picture) }}" class="media-object"
-                                    width="45px">
+                                <img style="border-radius:50%" src="{{ url('member/img/' . session('member')->picture) }}"
+                                    class="media-object" width="45px">
                             </div>
                             {{-- TÊN NG DÙNG --}}
                             <div class="media-body">

@@ -8,7 +8,7 @@
                  <li><a href=""><i class="fa fa-facebook"></i></a></li>
                  <li><a href=""><i class="fa fa-twitter"></i></a></li>
                  <li><a href=""><i class="fa fa-instagram"></i></a></li>
-                 <li><a href=""><i class="fa fa-youtube"></i></a></li>
+                 <li><a href="https://youtu.be/G4mNXuhsNAw"><i class="fa fa-youtube"></i></a></li>
              </ul>
          </div>
          <!--Kết Thúc Nội Dung Giới Thiệu-->
@@ -16,8 +16,8 @@
          <div class="noi-dung links">
              <h2>Link</h2>
              <ul>
-                 <li><a href="#">Home page</a></li>
-                 <li><a href="#">About us</a></li>
+                 <li><a href="{{ url('/') }}">Home page</a></li>
+                 <li><a href="{{ url('home/about') }}">About us</a></li>
                  <li><a href="#">Communications</a></li>
                  <li><a href="#">Service</a></li>
                  <li><a href="#">Policy conditions</a></li>
@@ -32,7 +32,7 @@
                      <span><i class="fa fa-map-marker"></i></span>
                      <span>580 August Revolution, Ho Chi Minh City, Vietnam</span>
                  </li>
-                 
+
              </ul>
          </div>
          <!--Kết Thúc Nội Dung Liên Hệ-->

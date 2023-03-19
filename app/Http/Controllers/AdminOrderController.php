@@ -17,7 +17,7 @@ class AdminOrderController extends Controller
 {
     public function viewOrder()
     {
-        $ds = Order::all();
+        $ds = DB::table('order')->orderByRaw('id DESC')->get();
         return view("admin.order.order_index")->with(['orders' => $ds]);
     }
 

@@ -118,6 +118,7 @@ class ProductController extends Controller
 
             $cart = [
                 $id => [
+                    "id" => $product->id,
                     "name" => $product->name,
                     "quantity" => 1,
                     "price" => $product->price,
@@ -142,6 +143,7 @@ class ProductController extends Controller
 
         // if item not exist in cart then add to cart with quantity = 1
         $cart[$id] = [
+            "id" => $product->id,
             "name" => $product->name,
             "quantity" => 1,
             "price" => $product->price,
@@ -163,7 +165,7 @@ class ProductController extends Controller
 
             session()->put('cart', $cart);
 
-            session()->flash('success', 'Cart updated successfully');
+            session()->flash('success2', 'Cart updated successfully');
         }
     }
 

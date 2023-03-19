@@ -20,25 +20,25 @@
                                 <div class="form-group">
                                     <label for="">Full name</label>
                                     <input type="text" class="form-control-organic" id="" name="name"
-                                        placeholder="Input Name">
+                                        placeholder="Input Name" required>
                                 </div>
                             </div>
                             <div class="col l-6 m-6 c-12">
                                 <div class="form-group">
                                     <label for="">E-mail</label>
                                     <input type="email" class="form-control-organic" id="" name="email"
-                                        placeholder="Input Email">
+                                        placeholder="Input Email" required>
                                 </div>
                             </div>
                         </div><br><br>
                         <div class="form-group">
                             <label for="">Phone</label>
                             <input type="number" class="form-control-organic" id="" name="phone"
-                                placeholder="Input your phone">
+                                placeholder="Input your phone" required>
                         </div><br><br>
                         <div class="form-group">
                             <label for="">Message</label>
-                            <textarea class="form-control-organic" id="" name="message" placeholder="Input message"></textarea>
+                            <textarea required class="form-control-organic" id="" name="message" placeholder="Input message"></textarea>
                         </div><br><br>
                         <div style="text-align: center;">
                             <button class="Send_contact"><i class="glyphicon glyphicon-send"></i> Send</button>

@@ -53,3 +53,25 @@
 .signUp_button_member:hover{
     background-color: #0cad0c;
 }
+
+.res_input_member{
+    border: 1px solid;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    /* border-radius: 25px; */
+    width: 80%;
+    height: 50px;
+    font-size: 18px;
+    margin-left: 45px;
+    border-color: 2px #33333382;
+    padding-left: 15px;
+    color: #333;
+}
+
+.res_input_member:focus{
+    outline: none;
+    border-color: #33CC33;
+    /* box-shadow: 0px 0px 7px 3px rgba(0, 0, 0, 0.1); */
+    color: #333;
+}

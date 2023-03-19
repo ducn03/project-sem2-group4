@@ -36,16 +36,16 @@
                                     <th>Date</th>
                                     <th>Status</th>
                                     <th>Total_amount</th>
-                                    <th>Shipping_name</th>
-                                    <th>Shipping_mobile</th>
+                                    {{-- <th>Shipping_name</th>
+                                    <th>Shipping_mobile</th> --}}
                                     <th>Phone</th>
                                     <th>Note</th>
                                     <th>Shipping_email</th>
                                     <th>Shipping_address</th>
                                     <th>Payment_term</th>
                                     <th>Staff_id</th>
-                                    <th>Delivered_date</th>
-                                    <th>Shipping_fee</th>
+                                    {{-- <th>Delivered_date</th>
+                                    <th>Shipping_fee</th> --}}
                                     <th style="min-width:140px;"></th>
                                 </tr>
                             </thead>
@@ -58,8 +58,8 @@
                                             <td>{{ $o->date }}</td>
                                             <td><b>{{ $o->status }}</b></td>
                                             <td>{{ $o->total_amount }}</td>
-                                            <td>{{ $o->shipping_name }}</td>
-                                            <td>{{ $o->shipping_mobile }}</td>
+                                            {{-- <td>{{ $o->shipping_name }}</td>
+                                            <td>{{ $o->shipping_mobile }}</td> --}}
                                             <td>{{ $o->phone }}</td>
                                             <td>{{ $o->note }}</td>
                                             <td>{{ $o->shipping_email }}</td>
@@ -73,8 +73,8 @@
                                                 {{-- {{ $o->payment_term }} --}}
                                             </td>
                                             <td>{{ $o->staff_id }}</td>
-                                            <td>{{ $o->delivered_date }}</td>
-                                            <td>{{ $o->shipping_fee }}</td>
+                                            {{-- <td>{{ $o->delivered_date }}</td>
+                                            <td>{{ $o->shipping_fee }}</td> --}}
                                             <td class="text-right">
                                                 <a class="btn btn-info btn-sm"
                                                     href="{{ url('admin/order/order_update/' . $o->id) }}">
@@ -83,7 +83,7 @@
 
                                                 @if (session('user')->role == 2)
 
-                                                <a class="btn btn-danger btn-sm"
+                                                <a onclick="return confirm('Are you sure you want to delete it?');" class="btn btn-danger btn-sm"
                                                     href="{{ url('admin/order/order_delete/' . $o->id) }}">
                                                     <i class="fas fa-trash"></i> Delete
                                                 </a>
@@ -137,9 +137,9 @@
                                     <th>Shipping_email</th>
                                     <th>Shipping_address</th>
                                     <th>Payment_term</th>
-                                    <th>Staff_id</th>
+                                    {{-- <th>Staff_id</th> --}}
                                     <th>Delivered_date</th>
-                                    <th>Shipping_fee</th>
+                                    {{-- <th>Shipping_fee</th> --}}
                                     <th style="min-width:140px;"></th>
                                 </tr>
                             </thead>
@@ -169,9 +169,9 @@
                                                 @endif
                                                 {{-- {{ $o->payment_term }} --}}
                                             </td>
-                                            <td>{{ $o->staff_id }}</td>
+                                            {{-- <td>{{ $o->staff_id }}</td> --}}
                                             <td>{{ $o->delivered_date }}</td>
-                                            <td>{{ $o->shipping_fee }}</td>
+                                            {{-- <td>{{ $o->shipping_fee }}</td> --}}
                                             <td class="text-right">
                                                 <a class="btn btn-info btn-sm"
                                                     href="{{ url('admin/order/order_update/' . $o->id) }}">

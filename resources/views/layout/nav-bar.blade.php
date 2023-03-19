@@ -43,9 +43,11 @@
                         class="glyphicon glyphicon-shopping-cart"></span>cart
                     (<span style="color: red;">
                         @if (session('cart'))
-                            {{ count(session('cart')) }}
+                            <span id="total-quanty-show">{{ count(session('cart')) }}</span>
+                            <input hidden type="number" id="countCart" value="{{ count(session('cart')) }}">
                         @else
-                            0
+                            <span id="total-quanty-show">0</span>
+                            <input hidden type="number" id="countCart" value="0">
                         @endif
                     </span>)
                 </a></li>

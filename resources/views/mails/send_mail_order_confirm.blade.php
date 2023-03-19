@@ -124,7 +124,9 @@
             <th class="tb2">qty</th>
             <th class="tb2">price</th>
         </tr>
+        <?php $total = 0; ?>
         @foreach ($orderMail as $details)
+        <?php $total += $details->price * $details->qty; ?>
             <tr class="tb2">
                 <td class="tb2">{{ $details->name }}</td>
                 <td class="tb2"><img src="{{ $message->embed(public_path() . '/images/' . $details->image) }}"
@@ -135,7 +137,7 @@
         @endforeach
         <tr class="tb2">
             <td class="tb2" colspan="3">Total</td>
-            <td class="tb2">$ {{ $details->price * $details->qty }}</td>
+            <td class="tb2">$ {{ $total }}</td>
         </tr>
     </table>
 </body>

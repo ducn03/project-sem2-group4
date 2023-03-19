@@ -9,6 +9,7 @@
             <div style="text-align:center;">
                 <br>
                 <span class="alert alert-danger" style="color: red">
+
                     Error: {{ session('message') }}
                 </span>
             </div>
@@ -21,10 +22,10 @@
                 <span class="content_login_member">Admin</span>
             </div>
 
-            <label class="label_login_member" for="">Username</label><br>
-            <input class="password_login_member" name="username" type="username" required><br>
-            <label class="label_login_member" for="">Password</label><br>
-            <input class="password_login_member" name="password" type="password" required><br>
+            <label class="label_login_member" for=""></label><br>
+            <input class="password_login_member" name="username" type="username" placeholder="Enter your username" required><br>
+            <label class="label_login_member" for=""></label><br>
+            <input class="password_login_member" name="password" type="password" placeholder="Enter your password" required><br>
 
             <button class="login_button_member">Log in</button>
 

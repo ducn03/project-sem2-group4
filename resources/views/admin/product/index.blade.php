@@ -58,7 +58,7 @@
                                                 <i class="fas fa-pencil-alt"></i> Edit
                                             </a>
                                             @if (session('user')->role == 2)
-                                                <a class="btn btn-danger btn-sm"
+                                                <a onclick="return confirm('Are you sure you want to delete it?');" class="btn btn-danger btn-sm"
                                                     href="{{ url('admin/product/delete/' . $p->id) }}">
                                                     <i class="fas fa-trash"></i> Delete
                                                 </a>

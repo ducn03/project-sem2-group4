@@ -3,6 +3,10 @@
     margin: 0;
     box-sizing: border-box;
 }
+a:active{
+    color:#33CC33;
+    text-decoration: none;
+}
 .navbar_login{
     color: white;
     margin: 10px;
@@ -48,6 +52,10 @@
     margin: 10px;
 }
 .navbar_main:hover{
+    color: #33CC33;
+    text-decoration: none;
+}
+.navbar_main:active{
     color: #33CC33;
     text-decoration: none;
 }

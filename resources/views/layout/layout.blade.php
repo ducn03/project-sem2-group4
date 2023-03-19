@@ -13,6 +13,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css" />
+    <!-- Default theme -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css" />
+    <!-- Semantic UI theme -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.min.css" />
+    <!-- Bootstrap theme -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css" />
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
@@ -29,7 +38,7 @@
 
 </head>
 
-<body style="background-color: #EEEEEE">
+<body style="background-color: #eeeeee83">
 
 
     @include('layout.nav-bar')
@@ -56,8 +65,72 @@
     <script src="{{ asset('js/toast_messages.js') }}"></script>
     <script src="{{ asset('plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    {{-- Alert --}}
+    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+
     <!-- <script src="{{ asset('js/product_button.js') }}"></script> -->
     <!-- page script -->
+
+
+
+
+
+
+
+
+    {{-- cart --}}
+    {{-- Dùng để lấy id --}}
+    @if(session('cart'))
+        @foreach (session('cart') as $id => $details)
+        <input hidden name="listCart" value="{{ $details['id'] }}" type="text">
+        @endforeach
+    @endif
+
+    {{-- end cart --}}
+
+    <script type="text/javascript">
+        // Lấy danh sách id từ session đã lưu để kiểm tra sản phẩm đã tồn tại trong cart hay chưa KHI REFRESH hay MỚI SỬ DỤNG
+        const listId = [];
+        var count = document.getElementsByName("listCart").length;
+        for(i = 0; i < count; i++){
+            listId.push(document.getElementsByName("listCart")[i].value);
+        }
+
+
+        function RenderCart(response) {
+            var countCart = document.getElementById("countCart").value;
+            var countCartAdd1 = countCart * 1 + 1;
+            document.getElementById("total-quanty-show").innerHTML = countCartAdd1;
+            document.getElementById("countCart").value = countCartAdd1;
+        }
+
+        function Cart(id) {
+            $.ajax({
+                url: '/project-sem2/public/home/add-to-cart/' + id,
+                type: 'GET',
+            }).done(function(response) {
+
+                // Kiểm tra sản phẩm đã có trong cart chưa nếu rồi thì trả về false
+                var check = true;
+                for (i = 0; i < listId.length; i++) {
+                    if (listId[i] == id) {
+                        check = false;
+                    }
+                }
+                listId.push(id);
+
+                console.log(response);
+
+                if (check != false) {
+                    RenderCart(response);
+                    alertify.success('New product added');
+                    return;
+                }
+                alertify.success('The number of products has increased by 1');
+            });
+
+        }
+    </script>
     @yield('script-section')
 
 </body>

@@ -1,13 +1,27 @@
 @extends('layout.layout')
 @section('title', 'OrganicFood')
 @section('content')
+    <link rel="stylesheet" href="{{ asset('css/alertDelete.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/alert.css') }}">
+    {{-- <script src="{{ asset('js/alertDelete.js') }}"></script> --}}
+
     <br>
     <nav class="grid wide bg_white_container">
 
         @if (session('success'))
-            <div class="alert alert-success">
-                {{ session('success') }}
-            </div>
+            {{-- Thông báo bỏ sản phẩm khỏi giỏ hàng thành công --}}
+            <input hidden id="check" type="text" value="delete" />
+            <script src="{{ asset('js/alert.js') }}"></script>
+
+            {{-- <div class="alert alert-success">
+                 {{ session('success') }}
+            </div> --}}
+        @endif
+
+        @if (session('success2'))
+            {{-- Thông báo thay đổi số lượng sản phẩm trong giỏ hàng thành công --}}
+            <input hidden id="check" type="text" value="update" />
+            <script src="{{ asset('js/alert.js') }}"></script>
         @endif
 
         <table id="cart" class="table table-hover ">
@@ -40,15 +54,33 @@
                             </td>
                             <td data-th="Price">${{ $details['price'] }}</td>
                             <td data-th="Quantity">
-                                <input type="number" value="{{ $details['quantity'] }}" class="form-control quantity" min="1" max="100" oninput="this.value = !!this.value && Math.abs(this.value) >= 1 && Math.abs(this.value) <= 100 ? Math.abs(this.value) : null" />
+                                <input type="number" value="{{ $details['quantity'] }}" class="form-control quantity"
+                                    min="1" max="100"
+                                    oninput="this.value = !!this.value && Math.abs(this.value) >= 1 && Math.abs(this.value) <= 100 ? Math.abs(this.value) : null" />
                             </td>
                             <td data-th="Subtotal" class="text-center">${{ $details['price'] * $details['quantity'] }}
                             </td>
                             <td class="actions" data-th="">
                                 <button class="btn btn-info btn-sm update-cart" data-id="{{ $id }}"><i
                                         class="update_cart fa fa-refresh"></i></button>
-                                <button class="btn btn-danger btn-sm remove-from-cart" data-id="{{ $id }}"><i
+                                {{-- class alert-from-cart là để gọi thông báo delete --}}
+                                <button class="btn btn-danger btn-sm alert-from-cart" data-id="{{ $id }}"><i
                                         class="remove_cart fa fa-trash-o"></i></button>
+
+                                {{-- ALERT DELETE --}}
+                                    <div class="cd-popup {{ $id }}" role="alert">
+                                        <div class="cd-popup-container">
+                                            <p>Are you sure you want to delete this?</p>
+                                            <ul class="cd-buttons">
+                                                {{-- class remove-from-cart để gọi hàm bỏ sản phẩm ra khỏi giỏ hàng --}}
+                                                <li><a class="remove-from-cart" data-id="{{ $id }}"
+                                                        href="#0">Yes</a></li>
+                                                <li><a class="cd-popup2" href="#0">No</a></li>
+                                            </ul>
+                                            <a href="#0" class="cd-popup-close img-replace">Close</a>
+                                        </div> <!-- cd-popup-container -->
+                                    </div> <!-- cd-popup -->
+                                {{-- END DELETE ALERT --}}
                             </td>
                         </tr>
                     @endforeach
@@ -70,6 +102,30 @@
 
 
         <script type="text/javascript">
+            // CLOSE ALERT
+            jQuery(document).ready(function($) {
+                //close popup
+                $('.cd-popup').on('click', function(event) {
+                    if ($(event.target).is('.cd-popup-close') || $(event.target).is('.cd-popup')) {
+                        event.preventDefault();
+                        $(this).removeClass('is-visible');
+                    }
+                });
+                //close popup when clicking the esc keyboard button
+                $(document).keyup(function(event) {
+                    if (event.which == '27') {
+                        $('.cd-popup').removeClass('is-visible');
+                    }
+                });
+                $('.cd-popup2').on('click', function(event) {
+                    event.preventDefault();
+                    $('.cd-popup').removeClass('is-visible');
+                });
+            });
+            //END CLOSE ALERT
+
+            // UPDATE CART
+
             $(".update-cart").click(function(e) {
                 e.preventDefault();
 
@@ -89,25 +145,53 @@
                 });
             });
 
+            // END UPDATE CART
+
+            // ALERT REMOVE CART
+            $(".alert-from-cart").click(function(e) {
+                var id = $(this).attr("data-id");
+                e.preventDefault();
+                $('.'+id).addClass('is-visible');
+
+            });
+            // END ALERT REMOVE CART
+
+            // REMOVE CART
+
             $(".remove-from-cart").click(function(e) {
                 e.preventDefault();
 
                 var ele = $(this);
 
-                if (confirm("Are you sure")) {
-                    $.ajax({
-                        url: "{{ url('home/remove-from-cart') }}",
-                        method: "DELETE",
-                        data: {
-                            _token: '{{ csrf_token() }}',
-                            id: ele.attr("data-id")
-                        },
-                        success: function(response) {
-                            window.location.reload();
-                        }
-                    });
-                }
+                $.ajax({
+                    url: "{{ url('home/remove-from-cart') }}",
+                    method: "DELETE",
+                    data: {
+                        _token: '{{ csrf_token() }}',
+                        id: ele.attr("data-id")
+                    },
+                    success: function(response) {
+                        window.location.reload();
+                    }
+                });
+
+                //Nếu dùng confirm
+
+                // if (confirm("Are you sure")) {
+                //     $.ajax({
+                //         url: "{{ url('home/remove-from-cart') }}",
+                //         method: "DELETE",
+                //         data: {
+                //             _token: '{{ csrf_token() }}',
+                //             id: ele.attr("data-id")
+                //         },
+                //         success: function(response) {
+                //             window.location.reload();
+                //         }
+                //     });
+                // }
             });
+            // END REMOVE CART
         </script>
 
     </nav>
@@ -141,7 +225,8 @@
                         Name: <input class="form-control" type="text" name="name" id="name" required>
                     </div>
                     <div class="col l-6 m-6 c-12">
-                        Email: <input class="form-control" type="text" name="shipping_email" id="shipping_email" required>
+                        Email: <input class="form-control" type="text" name="shipping_email" id="shipping_email"
+                            required>
                     </div>
                 @endif
 
@@ -150,11 +235,11 @@
                         required>
                 </div>
                 <div class="col l-6 m-6 c-12">
-                    Phone: <input class="form-control" type="text" name="phone" id="phone"
-                        required>
+                    Phone: <input class="form-control" type="text" name="phone" id="phone" required>
                 </div>
                 <div class="col l-6 m-6 c-12">
-                    Note: <textarea class="form-control" name="note" id="note" value="no notes"></textarea>
+                    Note:
+                    <textarea class="form-control" name="note" id="note" value="no notes"></textarea>
                 </div>
                 <div class="col l-6 m-6 c-12">
 

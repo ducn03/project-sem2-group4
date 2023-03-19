@@ -72,7 +72,7 @@
                                                 <i class="fas fa-pencil-alt"></i> Edit
                                             </a>
                                             @if (session('user')->role == 2)
-                                                <a class="btn btn-danger btn-sm" href="{{ url('admin/customer/deleteCustomer/' . $c->id) }}">
+                                                <a onclick="return confirm('Are you sure you want to delete it?');" class="btn btn-danger btn-sm" href="{{ url('admin/customer/deleteCustomer/' . $c->id) }}">
                                                     <i class="fas fa-trash"></i> Delete
                                                 </a>
                                             @endif

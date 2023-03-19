@@ -36,7 +36,7 @@
                         <div class="item_product">
                             <div class="cart_index">
                                 <img class="img_product" src="{{ url('images/'.$p->image) }}" alt="">
-                                <button onclick="location.href=`{{ url('home/add-to-cart/'.$p->id) }}`" class="button_product_2"><span class="glyphicon glyphicon-shopping-cart"></span></button>
+                                <button onclick="Cart({{ $p->id }})" class="button_product_2"><span class="glyphicon glyphicon-shopping-cart"></span></button>
                             </div>
                             <br>
                             <h4 class="title_product"><a href="{{ url('home/productDetail/'.$p->id) }}">{{ $p->name }}</a></h4>

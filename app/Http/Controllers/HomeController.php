@@ -96,7 +96,7 @@ class HomeController extends Controller
         $fullname = $request->input('fullname');
         $tel = $request->input('tel');
         $address = $request->input('address');
-        $active = $request->input('active');
+        //$active = $request->input('active');
 
 
         DB::table('members')->insert([
@@ -107,7 +107,7 @@ class HomeController extends Controller
             'fullname' => $fullname,
             'tel' => $tel,
             'address' => $address,
-            'active' => $active
+            'active' => 1
         ]);
         return redirect()->action([HomeController::class, 'product_home']);
     }

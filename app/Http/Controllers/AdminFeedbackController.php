@@ -17,7 +17,9 @@ class AdminFeedbackController extends Controller
 {
     public function feedbackIndex(){
 
-        $f = DB::table('feedback')->get();
+        $f = DB::table('feedback')
+        ->orderByRaw('id DESC')
+        ->get();
 
         return view('admin.feedback.feedback_index')->with(['feedback'=>$f]);
     }

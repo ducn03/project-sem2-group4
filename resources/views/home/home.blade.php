@@ -129,8 +129,8 @@
                         <div class="item_product">
                             <div class="cart_index">
                                 <img class="img_product" src="{{ url('images/' . $p->image) }}" alt="">
-                                <button onclick="location.href=`{{ url('home/add-to-cart/' . $p->id) }}`"
-                                    class="button_product"><span class="glyphicon glyphicon-shopping-cart"></span></button>
+                                <button onclick="Cart({{ $p->id }})" class="button_product"><span
+                                        class="glyphicon glyphicon-shopping-cart"></span></button>
                             </div>
                             <br>
                             <h4 class="title_product"><a
@@ -159,8 +159,7 @@
                         <div class="item_product">
                             <div class="cart_index">
                                 <img class="img_product" src="{{ url('images/' . $p->image) }}" alt="">
-                                <button onclick="location.href=`{{ url('home/add-to-cart/' . $p->id) }}`"
-                                    class="button_product"><span
+                                <button onclick="Cart({{ $p->id }})" class="button_product"><span
                                         class="glyphicon glyphicon-shopping-cart"></span></button>
                             </div>
                             <br>
@@ -190,8 +189,7 @@
                         <div class="item_product">
                             <div class="cart_index">
                                 <img class="img_product" src="{{ url('images/' . $p->image) }}" alt="">
-                                <button onclick="location.href=`{{ url('home/add-to-cart/' . $p->id) }}`"
-                                    class="button_product"><span
+                                <button onclick="Cart({{ $p->id }})" class="button_product"><span
                                         class="glyphicon glyphicon-shopping-cart"></span></button>
                             </div>
                             <br>
@@ -218,28 +216,30 @@
             <div class="row">
                 <div class="col l-6 m-6 c-12">
                     <div class="main_blog_home">
-                        <img class="img_main_home_blog" src="{{ asset('img/'.$blog1->image) }}" alt="">
-                        <h4><a class="main_title_blog" href="{{ url('home/blogDetail/'.$blog1->id) }}">{{ $blog1->topic }}</a></h4>
+                        <img class="img_main_home_blog" src="{{ asset('img/' . $blog1->image) }}" alt="">
+                        <h4><a class="main_title_blog"
+                                href="{{ url('home/blogDetail/' . $blog1->id) }}">{{ $blog1->topic }}</a></h4>
                         <h5 class="main_date_blog">{{ $blog1->date }}</h5>
                     </div>
                 </div>
                 <div class="col l-6 m-6 c-12">
                     <div class="row">
                         @foreach ($blog as $b)
-                        <div class="col l-12 m-12 c-12">
-                            <div class="blog_home">
-                                <div class="row">
-                                    <div class="col l-4 m-0 c-0">
-                                        <img class="img_home_blog" src="{{ asset('img/'.$b->image) }}"
-                                            alt="">
-                                    </div>
-                                    <div class="col l-8 m-12 c-12">
-                                        <a class="title_home_blog" href="{{ url('home/blogDetail/'.$b->id) }}">{{ $b->topic }}</a><br>
-                                        <h5 class="date_home_blog">{{ $b->date }}</h5>
+                            <div class="col l-12 m-12 c-12">
+                                <div class="blog_home">
+                                    <div class="row">
+                                        <div class="col l-4 m-0 c-0">
+                                            <img class="img_home_blog" src="{{ asset('img/' . $b->image) }}"
+                                                alt="">
+                                        </div>
+                                        <div class="col l-8 m-12 c-12">
+                                            <a class="title_home_blog"
+                                                href="{{ url('home/blogDetail/' . $b->id) }}">{{ $b->topic }}</a><br>
+                                            <h5 class="date_home_blog">{{ $b->date }}</h5>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
                         @endforeach
 
                     </div>
@@ -252,8 +252,12 @@
 
 
     </nav>
+
+
+
+
+
 @endsection
 @section('script-section')
-
 
 @endsection

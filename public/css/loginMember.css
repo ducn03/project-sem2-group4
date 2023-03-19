@@ -37,10 +37,15 @@
 
 .password_login_member{
     border: 1px solid;
-    border-radius: 30px;
-    font-size: 25px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    /* border-radius: 25px; */
+    width: 75%;
+    height: 50px;
+    font-size: 18px;
     margin-left: 45px;
-    border-color: #4158d0;
+    border-color: 2px #33333382;
     padding-left: 15px;
     color: #333;
 }
@@ -48,7 +53,7 @@
 .password_login_member:focus{
     outline: none;
     border-color: #33CC33;
-    box-shadow: 0px 0px 7px 3px rgba(0, 0, 0, 0.1);
+    /* box-shadow: 0px 0px 7px 3px rgba(0, 0, 0, 0.1); */
     color: #333;
 }
 
